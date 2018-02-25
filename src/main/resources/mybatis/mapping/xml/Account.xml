@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.accp.dao.AccountDao">
+
+        <resultMap id="AccountMap" type="Account">
+            <result column="id" property="id"></result>
+            <result column="cardNo" property="cardNo"></result>
+            <result column="password" property="password"></result>
+            <result column="balance" property="balance"></result>
+            <result column="status" property="status"></result>
+        </resultMap>
+
+        <resultMap id="TransactionRecordMap" type="TransactionRecord">
+            <result column="id" property="id"></result>
+            <result column="cardNo" property="cardNo"></result>
+            <result column="transactionDate" property="transactionDate"></result>
+            <result column="transactionAmount" property="transactionAmount"></result>
+            <result column="balance" property="balance"></result>
+            <result column="transactionType" property="transactionType"></result>
+            <result column="remark" property="remark"></result>
+        </resultMap>
+
+            <select id="queryAccount" resultType="Account">
+                select * from accounts where cardNo=#{cardNo} and password=#{password}
+            </select>
+
+
+            <select id="queryBalance" resultType="Account">
+                select balance from account
+            </select>
+
+
+
+
+</mapper>
